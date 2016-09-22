@@ -38,7 +38,7 @@ RSpec.describe Cart, :type => :model do
       expect(second_line_item.cart_id).to eq(@cart.id)
     end
 
-    it 'updates existing line_item instead of making new when adding same item' do 
+    it 'updates existing line_item instead of making new when adding same item' do
       @line_item2 = @cart.add_item(@item.id)
       @line_item2.save
       expect(@line_item.id).to eq(@line_item2.id)
