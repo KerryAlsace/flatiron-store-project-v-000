@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(version: 20160922154956) do
 
   create_table "carts", force: :cascade do |t|
-    t.string   "name"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -36,7 +35,6 @@ ActiveRecord::Schema.define(version: 20160922154956) do
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.string   "name"
     t.integer  "cart_id"
     t.integer  "item_id"
     t.integer  "quantity",   default: 1
@@ -45,7 +43,6 @@ ActiveRecord::Schema.define(version: 20160922154956) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "title"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

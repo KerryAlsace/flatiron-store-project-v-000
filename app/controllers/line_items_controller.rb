@@ -5,19 +5,7 @@ class LineItemsController < ApplicationController
   end
 
   def create
-    @line_item = LineItem.new(line_item_params)
-    if @line_item.save
-      flash[:notice] = "Line item successfully created"
-      redirect_to line_item_path(@line_item)
-    else
-      flash[:message] = "Line item could not be created"
-      render :new
-    end
+    @line_item = LineItem.create(cart_id: params[:cart_id], item_id: params[:item_id])
   end
-
-  private
-    def line_item_params
-      params.require(:line_item).permit()
-    end
 
 end
