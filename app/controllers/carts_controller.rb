@@ -5,6 +5,8 @@ class CartsController < ApplicationController
   end
   
   def show
+    @cart = Cart.find(params[:id])
+
   end
   
   def new
@@ -24,6 +26,7 @@ class CartsController < ApplicationController
   
   def update
     @cart = Cart.find(params[:id])
+    binding.pry
     if @cart.update(cart_params)
       flash[:notice] = "Cart successfully updated"
 

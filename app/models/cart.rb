@@ -31,4 +31,17 @@ class Cart < ActiveRecord::Base
     @current_cart = nil
   end
 
+  private
+    def set_current_cart
+      if !user_signed_in?
+        return
+      end
+      if current_user.current_cart != nil
+        @current_cart = current_user.current_cart
+      else
+        current_user.current_cart = current_user.carts.create
+        @current_cart = current_user.current_cart
+      end
+    end
+
 end
