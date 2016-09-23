@@ -29,7 +29,7 @@ class Cart < ActiveRecord::Base
       li.item.save
     end
     self.line_items = []
-    self.checked_out = true
+    self.status = "submitted"
     save
   end
 

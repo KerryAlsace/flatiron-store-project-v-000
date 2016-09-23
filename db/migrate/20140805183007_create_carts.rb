@@ -2,7 +2,7 @@ class CreateCarts < ActiveRecord::Migration
   def change
     create_table :carts do |t|
       t.integer :user_id
-      t.boolean :checked_out, default: false
+      t.string :status, default: "not submitted"
 
       t.timestamps
     end
