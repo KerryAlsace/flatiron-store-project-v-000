@@ -7,7 +7,7 @@
   <% @items.each do |item| %>
     <p><%= item.title %> | 
     <%= "$#{item.price.to_f/100}" %> | 
-    <%= button_to 'Add to Cart', cart_path(@current_cart), params: {item_id: item.id} %></p>
+    <%= button_to 'Add to Cart', line_items_path(item_id: item) %></p>
   <% end %>
 <% else %>
   <% @items.each do |item| %>

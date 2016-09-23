@@ -24,23 +24,13 @@ class Cart < ActiveRecord::Base
   end
 
   def update_inventory_after_checkout
-    @current_cart.line_items.each do |li|
+    line_items.each do |li|
       li.item.inventory -= li.quantity
       li.item.save
     end
-    @current_cart = nil
-  end
-
-  def set_current_cart
-    if !user_signed_in?
-      return
-    end
-    if current_user.current_cart != nil
-      @current_cart = current_user.current_cart
-    else
-      current_user.current_cart = current_user.carts.create
-      @current_cart = current_user.current_cart
-    end
+    self.line_items = []
+    self.checked_out = true
+    save
   end
 
 end

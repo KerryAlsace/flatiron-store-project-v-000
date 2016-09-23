@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20160922154956) do
 
   create_table "carts", force: :cascade do |t|
     t.integer  "user_id"
+    t.boolean  "checked_out", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
