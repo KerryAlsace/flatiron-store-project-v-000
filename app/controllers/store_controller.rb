@@ -15,5 +15,3 @@ class StoreController < ApplicationController
   end
   
 end
-# <%= button_to 'Add to Cart', cart_path(@current_cart) %>
-# <%= button_to "Add to Cart", {controller: "carts", id: @current_cart.id, action: "show"}, method: :get %>

@@ -6,7 +6,6 @@ class CartsController < ApplicationController
   
   def show
     @cart = Cart.find(params[:id])
-
   end
   
   def new
@@ -26,16 +25,13 @@ class CartsController < ApplicationController
   
   def update
     @cart = Cart.find(params[:id])
-    binding.pry
-    if @cart.update(cart_params)
-      flash[:notice] = "Cart successfully updated"
-
-      redirect_to cart_path(@cart)
-    else
-      flash[:alert] = "Cart could not be updated"
-
-      render :edit
+    render :show
+    if current_user.current_cart = nil
+      current_user.current_cart = current_user.carts.create
+      @current_cart = current_user.current_cart
     end
+    @cart.add_item(params["item_id"].to_i)
+    @cart.save
   end
   
   def destroy

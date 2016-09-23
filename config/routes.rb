@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :line_items, only: [:create]
   resources :orders, only: [:show]
 
+  post 'carts/:id', to: 'carts#update'
   post 'carts/:id/checkout', to: 'carts#checkout', as: 'checkout'
 
 end
